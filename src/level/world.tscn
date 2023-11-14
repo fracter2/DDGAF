@@ -1,22 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://bj7twvx1wyiyq"]
+[gd_scene load_steps=8 format=3 uid="uid://bj7twvx1wyiyq"]
 
 [ext_resource type="PackedScene" uid="uid://bpooxc27b8iqh" path="res://src/menu/Main Menu.tscn" id="1_hrsc2"]
+[ext_resource type="Script" path="res://src/duck/Player.gd" id="2_fdni3"]
+[ext_resource type="PackedScene" uid="uid://dvrtdejyn1gug" path="res://src/boykisser/BoyKisser.tscn" id="3_vcv8v"]
 
 [sub_resource type="Environment" id="Environment_7h5q0"]
 background_mode = 3
 tonemap_mode = 3
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjvbp"]
+
+[sub_resource type="Gradient" id="Gradient_rf3jy"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l1bet"]
+gradient = SubResource("Gradient_rf3jy")
+width = 32
+height = 32
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+repeat = 2
+metadata/_snap_enabled = true
+
 [node name="world" type="Node2D"]
+
+[node name="EnemyManager" type="Node2D" parent="."]
+
+[node name="BoyKisser" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(257, 111)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7h5q0")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(48, 80)
-polygon = PackedVector2Array(-29, -65, 254, -18, 310, 287, -20, -30)
+polygon = PackedVector2Array(-29, -65, 109, -58, 88, 77, -20, -30)
 
-[node name="Main Menu" parent="." instance=ExtResource("1_hrsc2")]
+[node name="Player" type="Area2D" parent="."]
+position = Vector2(258, 470)
+script = ExtResource("2_fdni3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_vjvbp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = SubResource("GradientTexture2D_l1bet")
+
+[node name="MainMenu" parent="." instance=ExtResource("1_hrsc2")]
+visible = false
 offset_right = 516.0
 offset_bottom = 516.0
 
-[editable path="Main Menu"]
+[connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]
+
+[editable path="MainMenu"]

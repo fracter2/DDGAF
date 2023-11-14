@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvrtdejyn1gug"]
+
+[ext_resource type="Script" path="res://src/boykisser/BoyKisser.gd" id="1_0e7om"]
+
+[sub_resource type="Gradient" id="Gradient_rxsfo"]
+colors = PackedColorArray(0.137386, 0.131551, 0.133021, 1, 1, 0.141591, 0.717999, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lxcpk"]
+gradient = SubResource("Gradient_rxsfo")
+width = 32
+height = 32
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyxqs"]
+
+[node name="BoyKisser" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_0e7om")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_lxcpk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kyxqs")
+
+[node name="DeathCountdown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="DeathCountdown" to="." method="_on_death_countdown_timeout"]
