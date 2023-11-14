@@ -1,7 +1,13 @@
-[gd_scene format=3 uid="uid://bj7twvx1wyiyq"]
+[gd_scene load_steps=2 format=3 uid="uid://bj7twvx1wyiyq"]
+
+[ext_resource type="PackedScene" uid="uid://bpooxc27b8iqh" path="res://src/menu/Main Menu.tscn" id="1_hrsc2"]
 
 [node name="world" type="Node2D"]
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(48, 80)
 polygon = PackedVector2Array(-29, -65, 254, -18, 310, 287, -20, -30)
+
+[node name="Main Menu" parent="." instance=ExtResource("1_hrsc2")]
+offset_right = 516.0
+offset_bottom = 516.0
