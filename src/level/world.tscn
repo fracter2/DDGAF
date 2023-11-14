@@ -1,25 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://bj7twvx1wyiyq"]
+[gd_scene load_steps=9 format=3 uid="uid://bj7twvx1wyiyq"]
 
 [ext_resource type="PackedScene" uid="uid://bpooxc27b8iqh" path="res://src/menu/Main Menu.tscn" id="1_hrsc2"]
 [ext_resource type="Script" path="res://src/level/EnemyManager.gd" id="1_ny70u"]
 [ext_resource type="Script" path="res://src/duck/Player.gd" id="2_fdni3"]
 [ext_resource type="PackedScene" uid="uid://k1m1oeaibhd2" path="res://src/level/level_segment.tscn" id="2_qwu24"]
 [ext_resource type="PackedScene" uid="uid://dvrtdejyn1gug" path="res://src/boykisser/BoyKisser.tscn" id="3_vcv8v"]
+[ext_resource type="Texture2D" uid="uid://dsahx7yywjve6" path="res://src/duck/filteredduck.png" id="5_cvbol"]
 
 [sub_resource type="Environment" id="Environment_7h5q0"]
 background_mode = 3
 tonemap_mode = 3
-
-[sub_resource type="Gradient" id="Gradient_rf3jy"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_l1bet"]
-gradient = SubResource("Gradient_rf3jy")
-width = 32
-height = 32
-fill = 2
-fill_from = Vector2(0.5, 0.5)
-repeat = 2
-metadata/_snap_enabled = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_78e8l"]
 radius = 11.0454
@@ -53,7 +43,9 @@ position = Vector2(258, 470)
 script = ExtResource("2_fdni3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = SubResource("GradientTexture2D_l1bet")
+position = Vector2(1, 1)
+scale = Vector2(0.337871, 0.272358)
+texture = ExtResource("5_cvbol")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_78e8l")

@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://cfdjxts4ydvfs"
+path="res://.godot/imported/boykisser.png.png-f6e337efb67dd0d0b3f15529de027381.image"
+
+[deps]
+
+source_file="res://src/boykisser/boykisser.png.png"
+dest_files=["res://.godot/imported/boykisser.png.png-f6e337efb67dd0d0b3f15529de027381.image"]
+
+[params]
+

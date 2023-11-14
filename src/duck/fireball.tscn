@@ -1,19 +1,41 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvecechhdeduc"]
+[gd_scene load_steps=8 format=3 uid="uid://cvecechhdeduc"]
 
 [ext_resource type="Script" path="res://src/duck/fireball.gd" id="1_ltsqg"]
+[ext_resource type="Texture2D" uid="uid://blyhdxpv5p65m" path="res://src/duck/fireball (1).png" id="2_pxa8v"]
 
-[sub_resource type="Gradient" id="Gradient_lkcsy"]
-offsets = PackedFloat32Array(0.497006, 1)
-colors = PackedColorArray(2.8, 2.4, 0, 1, 1, 1, 1, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2g7m"]
+atlas = ExtResource("2_pxa8v")
+region = Rect2(0, 0, 109, 110)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_plkjt"]
-gradient = SubResource("Gradient_lkcsy")
-width = 12
-height = 12
-use_hdr = true
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-metadata/_snap_enabled = true
+[sub_resource type="AtlasTexture" id="AtlasTexture_y361q"]
+atlas = ExtResource("2_pxa8v")
+region = Rect2(0, 110, 109, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bhgx"]
+atlas = ExtResource("2_pxa8v")
+region = Rect2(0, 220, 109, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ghhqb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2g7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y361q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bhgx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"fireball",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyhm1"]
 
@@ -22,8 +44,11 @@ collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_ltsqg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_plkjt")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.38419e-07, 4.76837e-07)
+scale = Vector2(0.183486, 0.181818)
+sprite_frames = SubResource("SpriteFrames_ghhqb")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kyhm1")

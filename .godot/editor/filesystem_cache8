@@ -1,12 +1,25 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1699956967
-icon.svg::CompressedTexture2D::8051712269930460936::1699953642::1699953649::1::::<><>::
-::res://src/::1699956228
-::res://src/boykisser/::1699956052
-::res://src/car/::1699956079
-::res://src/duck/::1699955784
-::res://src/intro/::1699956228
-::res://src/level/::1699956780
-world.tscn::PackedScene::3085374414626304256::1699956780::0::1::::<><>::
-::res://src/menu/::1699956028
-::res://src/vaporeon/::1699956011
+::res://::1699999010
+icon.svg::CompressedTexture2D::8051712269930460936::1699989036::1699989036::1::::<><>::
+::res://src/::1699999567
+fireball (1).png::CompressedTexture2D::3949032090257296194::1699999566::1699999567::1::::<><>::
+::res://src/boykisser/::1700000399
+BoyKisser.gd::GDScript::-1::1699989468::0::1::::<>Area2D<>::
+boykisser.png.png::Image::5130567272133228104::1699998188::1699999006::1::::<><>::
+BoyKisser.tscn::PackedScene::8669481394646769318::1700000399::0::1::::<><>::res://src/boykisser/BoyKisser.gd
+::res://src/duck/::1700000751
+duckatackccccc.png::CompressedTexture2D::4885859444019332341::1700000751::1700000751::1::::<><>::
+filteredduck.png::CompressedTexture2D::8423129047715802275::1700000357::1700000357::1::::<><>::
+fireball (1).png::CompressedTexture2D::3208474638343951804::1699999673::1699999674::1::::<><>::
+fireball.gd::GDScript::-1::1699989468::0::1::::<>Node2D<>::
+fireball.tscn::PackedScene::6255193288144823334::1700000399::0::1::::<><>::res://src/duck/fireball.gd<>uid://blyhdxpv5p65m::::res://src/duck/fireball (1).png
+Player.gd::GDScript::-1::1699989468::0::1::::<>Area2D<>::
+::res://src/level/::1700000435
+EnemyManager.gd::GDScript::-1::1699989468::0::1::::<>Node2D<>::
+level_segment.gd::GDScript::-1::1699989468::0::1::::<>Node2D<>::
+level_segment.tscn::PackedScene::756338034057460773::1700000398::0::1::::<><>::res://src/level/level_segment.gd
+world.tscn::PackedScene::3085374414626304256::1700000435::0::1::::<><>::uid://bpooxc27b8iqh::::res://src/menu/Main Menu.tscn<>res://src/level/EnemyManager.gd<>res://src/duck/Player.gd<>uid://k1m1oeaibhd2::::res://src/level/level_segment.tscn<>uid://dvrtdejyn1gug::::res://src/boykisser/BoyKisser.tscn<>uid://dsahx7yywjve6::::res://src/duck/filteredduck.png
+::res://src/menu/::1700000399
+Main Menu.tscn::PackedScene::3469045886191963039::1700000399::0::1::::<><>::res://src/menu/scripts/Main Menu.gd
+::res://src/menu/scripts/::1699989468
+Main Menu.gd::GDScript::-1::1699989468::0::1::::<>TextureRect<>::
