@@ -26,6 +26,11 @@ texture = SubResource("GradientTexture2D_lxcpk")
 shape = SubResource("RectangleShape2D_kyxqs")
 
 [node name="DeathCountdown" type="Timer" parent="."]
+wait_time = 0.3
 one_shot = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1.43051e-06, -2.38419e-07)
+scale = Vector2(1.6, 1.6)
 
 [connection signal="timeout" from="DeathCountdown" to="." method="_on_death_countdown_timeout"]

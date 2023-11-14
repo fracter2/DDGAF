@@ -21,8 +21,10 @@ func damage():
 	$Sprite2D.visible = false
 	#Death sfx
 	#explostion sfx
-	%DeathCountdown.start()
+	$DeathCountdown.start()
 
 
 func _on_death_countdown_timeout():
 	queue_free()
+
+
