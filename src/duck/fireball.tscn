@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvecechhdeduc"]
+
+[ext_resource type="Script" path="res://src/duck/fireball.gd" id="1_ltsqg"]
+
+[sub_resource type="Gradient" id="Gradient_lkcsy"]
+offsets = PackedFloat32Array(0.497006, 1)
+colors = PackedColorArray(2.8, 2.4, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_plkjt"]
+gradient = SubResource("Gradient_lkcsy")
+width = 12
+height = 12
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyhm1"]
+
+[node name="fireball" type="Area2D"]
+script = ExtResource("1_ltsqg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_plkjt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kyhm1")
