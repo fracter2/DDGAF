@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bj7twvx1wyiyq"]
+[gd_scene load_steps=10 format=3 uid="uid://bj7twvx1wyiyq"]
 
 [ext_resource type="PackedScene" uid="uid://bpooxc27b8iqh" path="res://src/menu/Main Menu.tscn" id="1_hrsc2"]
+[ext_resource type="Script" path="res://src/level/EnemyManager.gd" id="1_ny70u"]
 [ext_resource type="Script" path="res://src/duck/Player.gd" id="2_fdni3"]
+[ext_resource type="PackedScene" uid="uid://k1m1oeaibhd2" path="res://src/level/level_segment.tscn" id="2_qwu24"]
 [ext_resource type="PackedScene" uid="uid://dvrtdejyn1gug" path="res://src/boykisser/BoyKisser.tscn" id="3_vcv8v"]
 
 [sub_resource type="Environment" id="Environment_7h5q0"]
@@ -23,13 +25,27 @@ metadata/_snap_enabled = true
 
 [node name="world" type="Node2D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7h5q0")
+
+[node name="MapManager" type="Node2D" parent="."]
+script = ExtResource("1_ny70u")
+
+[node name="level_segment" parent="MapManager" instance=ExtResource("2_qwu24")]
+
+[node name="level_segment2" parent="MapManager" instance=ExtResource("2_qwu24")]
+position = Vector2(0, -512)
+
+[node name="level_segment3" parent="MapManager" instance=ExtResource("2_qwu24")]
+position = Vector2(0, -1024)
+
+[node name="level_segment4" parent="MapManager" instance=ExtResource("2_qwu24")]
+position = Vector2(0, -1536)
+
 [node name="EnemyManager" type="Node2D" parent="."]
 
 [node name="BoyKisser" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
 position = Vector2(257, 111)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_7h5q0")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(48, 80)

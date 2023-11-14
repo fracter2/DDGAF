@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://k1m1oeaibhd2"]
+[gd_scene load_steps=4 format=3 uid="uid://k1m1oeaibhd2"]
+
+[ext_resource type="Script" path="res://src/level/level_segment.gd" id="1_n3nbu"]
 
 [sub_resource type="Gradient" id="Gradient_jkvck"]
 colors = PackedColorArray(0.347817, 0.347817, 0.347817, 1, 0.808998, 0.808998, 0.808998, 1)
@@ -12,7 +14,8 @@ fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 
 [node name="level_segment" type="Node2D"]
+script = ExtResource("1_n3nbu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(256, 0)
+position = Vector2(256, 256)
 texture = SubResource("GradientTexture2D_k0hwq")
