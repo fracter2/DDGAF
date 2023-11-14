@@ -13,7 +13,7 @@ func _process(delta):
 	if not cruising:
 		return
 	
-	position.y += cruise_speed
+	position.y += cruise_speed * delta
 	
-	if position.y < 0:
+	if position.y > 512:
 		queue_free()

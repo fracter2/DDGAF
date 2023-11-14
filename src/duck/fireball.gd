@@ -8,7 +8,7 @@ signal hit
 func _process(delta):
 	position.y -= speed * delta
 	
-	if position.y < -40:
+	if position.y < -30:
 		despawn()
 
 

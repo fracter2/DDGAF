@@ -10,8 +10,6 @@
 background_mode = 3
 tonemap_mode = 3
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjvbp"]
-
 [sub_resource type="Gradient" id="Gradient_rf3jy"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_l1bet"]
@@ -22,6 +20,9 @@ fill = 2
 fill_from = Vector2(0.5, 0.5)
 repeat = 2
 metadata/_snap_enabled = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_78e8l"]
+radius = 11.0454
 
 [node name="world" type="Node2D"]
 
@@ -47,19 +48,15 @@ position = Vector2(0, -1536)
 [node name="BoyKisser" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
 position = Vector2(257, 111)
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(48, 80)
-polygon = PackedVector2Array(-29, -65, 109, -58, 88, 77, -20, -30)
-
 [node name="Player" type="Area2D" parent="."]
 position = Vector2(258, 470)
 script = ExtResource("2_fdni3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("RectangleShape2D_vjvbp")
-
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture = SubResource("GradientTexture2D_l1bet")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_78e8l")
 
 [node name="MainMenu" parent="." instance=ExtResource("1_hrsc2")]
 visible = false
@@ -67,5 +64,6 @@ offset_right = 516.0
 offset_bottom = 516.0
 
 [connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]
+[connection signal="button_down" from="MainMenu/Container/ButtonPlay" to="MapManager" method="_on_button_play_button_down"]
 
 [editable path="MainMenu"]
