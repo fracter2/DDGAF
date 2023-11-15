@@ -14,9 +14,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if position.y > -40: 
+		if active == false: $"Jiggle Timer".start()
 		visible = true 
 		active = true
-		$"Jiggle Timer".start()
+
 	
 	if active:
 		var target_pos:Vector2 
@@ -35,6 +36,7 @@ func damage():
 	#Death sfx
 	#explostion sfx
 	$DeathCountdown.start()
+	monitorable = false
 
 
 func _on_death_countdown_timeout():

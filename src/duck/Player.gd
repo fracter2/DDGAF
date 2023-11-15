@@ -11,6 +11,8 @@ const fireball_preload = preload("res://src/duck/fireball.tscn")
 var fireballs_ready:int = 3
 
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -49,4 +51,5 @@ func update_blipps():
 
 func _on_area_entered(area):
 	# take damage
-	pass
+	area.damage()
+	$"UI Layer".take_damage()
