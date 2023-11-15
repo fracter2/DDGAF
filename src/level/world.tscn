@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bj7twvx1wyiyq"]
+[gd_scene load_steps=12 format=3 uid="uid://bj7twvx1wyiyq"]
 
 [ext_resource type="PackedScene" uid="uid://bpooxc27b8iqh" path="res://src/menu/Main Menu.tscn" id="1_hrsc2"]
 [ext_resource type="Script" path="res://src/level/EnemyManager.gd" id="1_ny70u"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bdjyog7kfbog4" path="res://src/tree/tree.tscn" id="4_n3op0"]
 [ext_resource type="Texture2D" uid="uid://dsahx7yywjve6" path="res://src/duck/filteredduck.png" id="5_cvbol"]
 [ext_resource type="Script" path="res://src/duck/UI Layer.gd" id="7_mun4r"]
+[ext_resource type="Texture2D" uid="uid://jgkfkkogue4f" path="res://src/tree/heart (1).png" id="8_6qwpt"]
 
 [sub_resource type="Environment" id="Environment_7h5q0"]
 background_mode = 3
@@ -15,18 +16,6 @@ tonemap_mode = 3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_78e8l"]
 radius = 11.0454
-
-[sub_resource type="Gradient" id="Gradient_3xfkp"]
-offsets = PackedFloat32Array(0.538922, 0.640719, 0.736527, 0.814371)
-colors = PackedColorArray(0.999497, 0.373456, 0.427043, 1, 0.584773, 0.263907, 0.30142, 1, 0.0910532, 0.133491, 0.151869, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_a10h8"]
-gradient = SubResource("Gradient_3xfkp")
-width = 32
-height = 32
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-metadata/_snap_enabled = true
 
 [node name="world" type="Node2D"]
 
@@ -37,7 +26,7 @@ environment = SubResource("Environment_7h5q0")
 script = ExtResource("1_ny70u")
 
 [node name="level_segment" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -8)
+position = Vector2(0, -5)
 
 [node name="Instructions" type="Polygon2D" parent="MapManager/level_segment"]
 position = Vector2(-40, -192)
@@ -54,19 +43,19 @@ text = "A / D = walk
 SPACE = fire"
 
 [node name="level_segment2" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -512)
+position = Vector2(0, -515)
 
 [node name="level_segment3" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -1024)
+position = Vector2(0, -1026)
 
 [node name="level_segment4" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -1536)
+position = Vector2(0, -1535)
 
 [node name="level_segment5" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -2048)
+position = Vector2(0, -2044)
 
 [node name="level_segment6" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -2560)
+position = Vector2(0, -2548)
 
 [node name="level_segment7" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -3072)
@@ -246,15 +235,18 @@ script = ExtResource("7_mun4r")
 
 [node name="HP1" type="Sprite2D" parent="Player/UI Layer"]
 position = Vector2(48, 408)
-texture = SubResource("GradientTexture2D_a10h8")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_6qwpt")
 
 [node name="HP2" type="Sprite2D" parent="Player/UI Layer"]
 position = Vector2(48, 368)
-texture = SubResource("GradientTexture2D_a10h8")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_6qwpt")
 
 [node name="HP3" type="Sprite2D" parent="Player/UI Layer"]
 position = Vector2(48, 328)
-texture = SubResource("GradientTexture2D_a10h8")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_6qwpt")
 
 [node name="MainMenu" parent="." instance=ExtResource("1_hrsc2")]
 visible = false
