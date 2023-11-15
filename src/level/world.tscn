@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bj7twvx1wyiyq"]
+[gd_scene load_steps=10 format=3 uid="uid://bj7twvx1wyiyq"]
 
 [ext_resource type="PackedScene" uid="uid://bpooxc27b8iqh" path="res://src/menu/Main Menu.tscn" id="1_hrsc2"]
 [ext_resource type="Script" path="res://src/level/EnemyManager.gd" id="1_ny70u"]
 [ext_resource type="Script" path="res://src/duck/Player.gd" id="2_fdni3"]
 [ext_resource type="PackedScene" uid="uid://k1m1oeaibhd2" path="res://src/level/level_segment.tscn" id="2_qwu24"]
 [ext_resource type="PackedScene" uid="uid://dvrtdejyn1gug" path="res://src/boykisser/BoyKisser.tscn" id="3_vcv8v"]
+[ext_resource type="PackedScene" uid="uid://bdjyog7kfbog4" path="res://src/tree/tree.tscn" id="4_n3op0"]
 [ext_resource type="Texture2D" uid="uid://dsahx7yywjve6" path="res://src/duck/filteredduck.png" id="5_cvbol"]
 
 [sub_resource type="Environment" id="Environment_7h5q0"]
@@ -24,6 +25,20 @@ script = ExtResource("1_ny70u")
 
 [node name="level_segment" parent="MapManager" instance=ExtResource("2_qwu24")]
 
+[node name="Instructions" type="Polygon2D" parent="MapManager/level_segment"]
+position = Vector2(-40, -192)
+color = Color(0.266667, 0.266667, 0.266667, 1)
+polygon = PackedVector2Array(88, 200, 192, 200, 192, 256, 88, 256)
+
+[node name="Label" type="Label" parent="MapManager/level_segment/Instructions"]
+offset_left = 96.0
+offset_top = 200.0
+offset_right = 192.0
+offset_bottom = 226.0
+mouse_filter = 1
+text = "A / D = walk
+SPACE = fire"
+
 [node name="level_segment2" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -512)
 
@@ -33,13 +48,147 @@ position = Vector2(0, -1024)
 [node name="level_segment4" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -1536)
 
+[node name="level_segment5" parent="MapManager" instance=ExtResource("2_qwu24")]
+position = Vector2(0, -2048)
+
+[node name="level_segment6" parent="MapManager" instance=ExtResource("2_qwu24")]
+position = Vector2(0, -2560)
+
+[node name="level_segment7" parent="MapManager" instance=ExtResource("2_qwu24")]
+position = Vector2(0, -3072)
+
+[node name="level_segment8" parent="MapManager" instance=ExtResource("2_qwu24")]
+position = Vector2(0, -3584)
+
 [node name="EnemyManager" type="Node2D" parent="."]
+script = ExtResource("1_ny70u")
 
 [node name="BoyKisser" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
-position = Vector2(257, 111)
+position = Vector2(352, -944)
+
+[node name="BoyKisser3" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(88, -1120)
+
+[node name="BoyKisser4" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(408, -1264)
+
+[node name="BoyKisser5" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(192, -1392)
+
+[node name="BoyKisser6" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(144, -1632)
+
+[node name="BoyKisser10" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(80, -2144)
+
+[node name="BoyKisser11" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(413, -2152)
+
+[node name="BoyKisser12" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(256, -2304)
+
+[node name="BoyKisser13" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(88, -2440)
+
+[node name="BoyKisser15" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(88, -2640)
+
+[node name="BoyKisser16" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(424, -2648)
+
+[node name="BoyKisser17" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(327, -2816)
+
+[node name="BoyKisser18" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(176, -2816)
+
+[node name="BoyKisser19" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(72, -2968)
+
+[node name="BoyKisser20" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(438, -2984)
+
+[node name="BoyKisser14" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(408, -2432)
+
+[node name="BoyKisser7" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(392, -1718)
+
+[node name="BoyKisser8" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(112, -1848)
+
+[node name="BoyKisser9" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(388, -1928)
+
+[node name="BoyKisser2" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(252, -704)
+
+[node name="BoyKisser21" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(304, -264)
+
+[node name="tree" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(222, 32)
+
+[node name="tree4" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(374, 32)
+
+[node name="tree2" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(176, -904)
+
+[node name="tree5" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(167, -1248)
+
+[node name="tree6" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(302, -1384)
+
+[node name="tree7" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(136, -1736)
+
+[node name="tree8" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(344, -1704)
+
+[node name="tree9" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(288, -1920)
+
+[node name="tree11" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(363, -2230)
+
+[node name="tree12" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(142, -2224)
+
+[node name="tree14" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(158, -2665)
+
+[node name="tree15" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(224, -2640)
+
+[node name="tree16" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(296, -2647)
+
+[node name="tree17" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(363, -2665)
+
+[node name="tree18" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(80, -2800)
+
+[node name="tree19" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(432, -2808)
+
+[node name="tree20" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(256, -2736)
+
+[node name="tree13" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(251, -2184)
+
+[node name="tree3" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(357, -736)
+
+[node name="tree10" parent="EnemyManager" instance=ExtResource("4_n3op0")]
+position = Vector2(160, -312)
 
 [node name="Player" type="Area2D" parent="."]
 position = Vector2(258, 470)
+collision_mask = 5
 script = ExtResource("2_fdni3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
@@ -95,5 +244,6 @@ offset_bottom = 516.0
 
 [connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]
 [connection signal="button_down" from="MainMenu/Container/ButtonPlay" to="MapManager" method="_on_button_play_button_down"]
+[connection signal="button_down" from="MainMenu/Container/ButtonPlay" to="EnemyManager" method="_on_button_play_button_down"]
 
 [editable path="MainMenu"]

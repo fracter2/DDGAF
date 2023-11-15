@@ -23,7 +23,7 @@ func _process(delta):
 	
 	position.x = clamp(position.x, BORDER_LEFT, BORDER_RIGHT)
 	position.y = clamp(position.y, BORDER_TOP, BORDER_BOTTOM)
-	
+	#print("aa")
 	
 	if Input.is_action_just_pressed("fire") and fireballs_ready > 0:
 		var fireball = fireball_preload.instantiate()
@@ -45,3 +45,8 @@ func update_blipps():
 	else: get_node("Fireball Blipp2").visible = false
 	if fireballs_ready > 2:  get_node("Fireball Blipp3").visible = true
 	else: get_node("Fireball Blipp3").visible = false
+
+
+func _on_area_entered(area):
+	# take damage
+	pass

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdjyog7kfbog4"]
+
+[ext_resource type="Script" path="res://src/tree/tree.gd" id="1_k8grc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tbowo"]
+radius = 18.0278
+
+[sub_resource type="Gradient" id="Gradient_btp33"]
+offsets = PackedFloat32Array(0.42515, 0.736527, 0.856287)
+colors = PackedColorArray(0, 0.560784, 0, 1, 0.0400853, 0.36721, 0.0400853, 1, 0.0962047, 0.0962048, 0.0962047, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q2bg2"]
+gradient = SubResource("Gradient_btp33")
+width = 32
+height = 32
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[node name="tree" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_k8grc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tbowo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+texture = SubResource("GradientTexture2D_q2bg2")
+
+[node name="DeathCountdown" type="Timer" parent="."]
+
+[node name="Jiggle Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DeathCountdown" to="." method="_on_death_countdown_timeout"]
+[connection signal="timeout" from="Jiggle Timer" to="." method="_on_jiggle_timer_timeout"]
