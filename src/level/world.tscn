@@ -50,6 +50,44 @@ texture = ExtResource("5_cvbol")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_78e8l")
 
+[node name="Fireball Blipp1" type="Polygon2D" parent="Player"]
+position = Vector2(-15, 25)
+color = Color(0.4, 0.364706, 0.286275, 1)
+polygon = PackedVector2Array(-3, -7, 7, -7, 7, 3, -3, 3)
+
+[node name="Inside" type="Polygon2D" parent="Player/Fireball Blipp1"]
+color = Color(0.948911, 0.711973, 0.0371234, 1)
+polygon = PackedVector2Array(-2, 2, 6, 2, 6, -6, -2, -6)
+
+[node name="Fireball Blipp2" type="Polygon2D" parent="Player"]
+position = Vector2(-4, 25)
+color = Color(0.4, 0.364706, 0.286275, 1)
+polygon = PackedVector2Array(-3, -7, 7, -7, 7, 3, -3, 3)
+
+[node name="Inside" type="Polygon2D" parent="Player/Fireball Blipp2"]
+color = Color(0.948911, 0.711973, 0.0371234, 1)
+polygon = PackedVector2Array(-2, 2, 6, 2, 6, -6, -2, -6)
+
+[node name="Fireball Blipp3" type="Polygon2D" parent="Player"]
+position = Vector2(7, 25)
+color = Color(0.4, 0.364706, 0.286275, 1)
+polygon = PackedVector2Array(-3, -7, 7, -7, 7, 3, -3, 3)
+
+[node name="Inside" type="Polygon2D" parent="Player/Fireball Blipp3"]
+color = Color(0.948911, 0.711973, 0.0371234, 1)
+polygon = PackedVector2Array(-2, 2, 6, 2, 6, -6, -2, -6)
+
+[node name="UI Layer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI Layer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
 [node name="MainMenu" parent="." instance=ExtResource("1_hrsc2")]
 visible = false
 offset_right = 516.0

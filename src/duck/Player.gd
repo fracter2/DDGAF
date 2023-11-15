@@ -8,7 +8,7 @@ const BORDER_TOP:int = 400
 @export var move_speed = 220
 
 const fireball_preload = preload("res://src/duck/fireball.tscn")
-var fireballs_ready:int = 1
+var fireballs_ready:int = 3
 
 
 # Called when the node enters the scene tree for the first time.
@@ -32,6 +32,16 @@ func _process(delta):
 		
 		get_parent().add_child(fireball)
 		fireballs_ready -= 1
+		update_blipps()
 
 func fireball_gained():
 	fireballs_ready += 1
+	update_blipps()
+
+func update_blipps():
+	if fireballs_ready > 0:  get_node("Fireball Blipp1").visible = true
+	else: get_node("Fireball Blipp1").visible = false
+	if fireballs_ready > 1:  get_node("Fireball Blipp2").visible = true
+	else: get_node("Fireball Blipp2").visible = false
+	if fireballs_ready > 2:  get_node("Fireball Blipp3").visible = true
+	else: get_node("Fireball Blipp3").visible = false
