@@ -32,6 +32,7 @@ func _process(delta):
 
 
 func damage():
+	$die.play()
 	$Sprite2D.visible = false
 	#Death sfx
 	#explostion sfx
@@ -40,6 +41,7 @@ func damage():
 
 
 func _on_death_countdown_timeout():
+	
 	queue_free()
 
 
