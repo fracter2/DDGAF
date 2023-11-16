@@ -318,6 +318,168 @@ position = Vector2(64, -5280)
 [node name="BoyKisser40" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
 position = Vector2(64, -5480)
 
+[node name="BoyKisser42" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(64, -5712)
+
+[node name="BoyKisser43" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(408, -5712)
+
+[node name="BoyKisser44" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(416, -5856)
+
+[node name="BoyKisser45" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(56, -5856)
+
+[node name="BoyKisser46" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(48, -6024)
+
+[node name="BoyKisser47" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(416, -6016)
+
+[node name="BoyKisser48" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(416, -6216)
+
+[node name="BoyKisser49" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(408, -6368)
+
+[node name="BoyKisser50" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(416, -6520)
+
+[node name="BoyKisser51" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(120, -6520)
+
+[node name="BoyKisser52" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(96, -6360)
+
+[node name="BoyKisser53" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(80, -6240)
+
+[node name="BoyKisser54" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(80, -6752)
+
+[node name="BoyKisser55" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(88, -6912)
+
+[node name="BoyKisser56" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(72, -7048)
+
+[node name="BoyKisser57" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(352, -7048)
+
+[node name="BoyKisser58" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(360, -6920)
+
+[node name="BoyKisser59" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(360, -6776)
+
+[node name="BoyKisser60" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(424, -7216)
+
+[node name="BoyKisser61" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(80, -7216)
+
+[node name="BoyKisser62" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(360, -7304)
+
+[node name="BoyKisser63" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(128, -7296)
+
+[node name="BoyKisser64" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(296, -7360)
+
+[node name="BoyKisser65" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(192, -7360)
+
+[node name="BoyKisser66" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(184, -7440)
+
+[node name="BoyKisser67" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(120, -7432)
+
+[node name="BoyKisser68" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(48, -7440)
+
+[node name="BoyKisser69" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(296, -7440)
+
+[node name="BoyKisser70" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(352, -7440)
+
+[node name="BoyKisser71" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(408, -7440)
+
+[node name="BoyKisser72" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(472, -7440)
+
+[node name="BoyKisser73" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(224, -7440)
+
+[node name="BoyKisser74" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(64, -7344)
+
+[node name="BoyKisser75" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(424, -7344)
+
+[node name="BoyKisser76" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(440, -7480)
+
+[node name="BoyKisser77" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(376, -7480)
+
+[node name="BoyKisser78" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(328, -7480)
+
+[node name="BoyKisser79" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(264, -7480)
+
+[node name="BoyKisser80" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(200, -7480)
+
+[node name="BoyKisser81" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(144, -7480)
+
+[node name="BoyKisser82" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(72, -7480)
+
+[node name="BoyKisser83" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(32, -7512)
+
+[node name="BoyKisser84" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(104, -7520)
+
+[node name="BoyKisser85" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(176, -7520)
+
+[node name="BoyKisser86" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(232, -7520)
+
+[node name="BoyKisser87" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(288, -7520)
+
+[node name="BoyKisser88" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(352, -7520)
+
+[node name="BoyKisser89" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(408, -7520)
+
+[node name="BoyKisser90" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(480, -7520)
+
+[node name="BoyKisser91" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(339, -7568)
+
+[node name="BoyKisser92" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(264, -7568)
+
+[node name="BoyKisser93" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(216, -7568)
+
+[node name="BoyKisser94" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(144, -7560)
+
+[node name="BoyKisser95" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(64, -7560)
+
 [node name="BoyKisser41" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
 position = Vector2(400, -5496)
 

@@ -3,7 +3,7 @@ extends Area2D
 const BORDER_RIGHT:int = 516 - 40
 const BORDER_LEFT:int = 40
 const BORDER_BOTTOM:int = 516 - 40
-const BORDER_TOP:int = 400
+const BORDER_TOP:int = 200
 
 @export var move_speed = 220
 
