@@ -34,6 +34,7 @@ func _process(delta):
 
 
 func damage(ammount: int = 1):
+	$ballsplosion.play()
 	$Sprite2D.visible = false
 	#Death sfx
 	#explostion sfx

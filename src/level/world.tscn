@@ -167,46 +167,46 @@ text = "A / D = walk
 SPACE = fire"
 
 [node name="level_segment4" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -1026)
+position = Vector2(0, -1018)
 
 [node name="level_segment5" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -1535)
+position = Vector2(0, -1528)
 
 [node name="level_segment6" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -2044)
+position = Vector2(0, -2035)
 
 [node name="level_segment7" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -2548)
+position = Vector2(0, -2540)
 
 [node name="level_segment8" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -3072)
+position = Vector2(0, -3051)
 
 [node name="level_segment9" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -3584)
+position = Vector2(0, -3559)
 
 [node name="level_segment10" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -4096)
+position = Vector2(0, -4070)
 
 [node name="level_segment11" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -4608)
+position = Vector2(0, -4578)
 
 [node name="level_segment12" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -5120)
+position = Vector2(0, -5085)
 
 [node name="level_segment13" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -5632)
+position = Vector2(0, -5595)
 
 [node name="level_segment14" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -6144)
+position = Vector2(0, -6104)
 
 [node name="level_segment15" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -6656)
+position = Vector2(0, -6614)
 
 [node name="level_segment16" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -7168)
+position = Vector2(0, -7122)
 
 [node name="level_segment17" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -7680)
+position = Vector2(0, -7633)
 
 [node name="EnemyManager" type="Node2D" parent="."]
 script = ExtResource("1_ny70u")
@@ -608,8 +608,10 @@ metadata/_edit_group_ = true
 
 [node name="Quack" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("6_2h4er")
+pitch_scale = 1.02
 
 [node name="Honk" type="AudioStreamPlayer" parent="Player"]
+pitch_scale = 4.0
 
 [node name="hurtSfx" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("7_j8nfn")
@@ -777,7 +779,7 @@ texture = ExtResource("26_wlay1")
 [node name="Lose Screen" type="Polygon2D" parent="."]
 visible = false
 color = Color(0.2, 0.2, 0.2, 1)
-polygon = PackedVector2Array(0, 0, 512, 0, 512, 504, 0, 504)
+polygon = PackedVector2Array(0, 0, 512, 0, 513, 553, -12, 541)
 
 [node name="Sprite2D" type="Sprite2D" parent="Lose Screen"]
 position = Vector2(256, 256)

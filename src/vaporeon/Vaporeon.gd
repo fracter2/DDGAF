@@ -62,12 +62,14 @@ func spawn_testicles(ammount:int):
 
 func damage(ammount:int = 1): # to the vaporeor
 	if vourlnable:
+		$Moahn.play()
 		hp -= ammount
 		hits_taken += 1
 	
 	
 	if hp <= 0:
 		$Moahn.play()
+		$Copypasta.stop()
 		vourlnable = false
 		$"Death Timer".start()
 	
@@ -97,6 +99,6 @@ func testicle_destroyed():
 
 func _on_death_timer_timeout():
 	$"../../Win Screen".visible = true
-	$"../../Player"
+	$"../../Player".has_won = true
 	
-	#queue_free()
+	queue_free()

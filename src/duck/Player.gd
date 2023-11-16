@@ -12,7 +12,7 @@ var fireballs_ready:int = 3
 
 var hp:int = 0
 var isMusicOn = false
-var has_won:bool = false
+@export var has_won:bool = false
 
 @onready var sprite1 = $Sprite2D
 @onready var sprite2 = $Sprite2D2
@@ -29,7 +29,7 @@ func _process(delta):
 	sprite2.position.x = randf_range(-2, 2)
 	sprite2.position.y = randf_range(-2, 2)
 	
-	if hp >= 0:
+	if hp >= 0 and has_won != true:
 	
 		position.x += Input.get_axis("moveLeft", "moveRight") * move_speed * delta
 		position.y += Input.get_axis("moveUp", "moveDown") * move_speed * delta
@@ -38,7 +38,7 @@ func _process(delta):
 		position.y = clamp(position.y, BORDER_TOP, BORDER_BOTTOM)
 		#print("aa")
 	
-		if Input.is_action_just_pressed("fire") and fireballs_ready > 0:
+		if Input.is_action_just_pressed("fire") and fireballs_ready > 0 and has_won != true:
 			if randi_range(0,9) < 9 : $Quack.play()
 			else: $Quack.play()  #$Honk.play() // I couldn't implement the honk mp3 for some reason
 			
@@ -101,7 +101,10 @@ func _on_area_entered(area):
 		else:
 			#flatline
 			$Flatline.play()
-		
+		#setting the speed to 0 so duck doesn't get vaporeon spoiled when he dies before he gets to it
+		move_speed = 0
+		#this does not seem to stop the player from getting hit again, so temp fix that i found is to set has_won to true
+		has_won = true
 		monitorable = false
 
 
