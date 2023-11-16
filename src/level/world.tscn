@@ -594,7 +594,7 @@ polygon = PackedVector2Array(-144, -48, -56, -24, 72, -24, 160, -48)
 
 [node name="Copypasta" type="AudioStreamPlayer" parent="EnemyManager/Vaporeon"]
 stream = ExtResource("8_2e8wu")
-volume_db = 10.306
+volume_db = 15.041
 
 [node name="Moahn" type="AudioStreamPlayer" parent="EnemyManager/Vaporeon"]
 stream = ExtResource("7_j8nfn")
