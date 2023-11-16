@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bj7twvx1wyiyq"]
+[gd_scene load_steps=20 format=3 uid="uid://bj7twvx1wyiyq"]
 
 [ext_resource type="PackedScene" uid="uid://bpooxc27b8iqh" path="res://src/menu/Main Menu.tscn" id="1_hrsc2"]
 [ext_resource type="Script" path="res://src/level/EnemyManager.gd" id="1_ny70u"]
@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bdjyog7kfbog4" path="res://src/tree/tree.tscn" id="4_n3op0"]
 [ext_resource type="Texture2D" uid="uid://dsahx7yywjve6" path="res://src/duck/filteredduck.png" id="5_cvbol"]
 [ext_resource type="Script" path="res://src/vaporeon/Vaporeon.gd" id="5_ooj2w"]
-[ext_resource type="Script" path="res://src/level/Barrierr.gd" id="6_51d3p"]
 [ext_resource type="AudioStream" uid="uid://dtwy1cohuki2o" path="res://src/duck/Quack.mp3" id="6_2h4er"]
 [ext_resource type="AudioStream" uid="uid://b220svkfy7fqs" path="res://src/HonkDoom.mp3" id="6_3wwtw"]
+[ext_resource type="Script" path="res://src/level/Barrierr.gd" id="6_51d3p"]
 [ext_resource type="AudioStream" uid="uid://cpyd4i3tijmyn" path="res://src/duck/FoofNoises.mp3" id="7_j8nfn"]
 [ext_resource type="Script" path="res://src/duck/UI Layer.gd" id="7_mun4r"]
 [ext_resource type="Texture2D" uid="uid://jgkfkkogue4f" path="res://src/tree/heart (1).png" id="8_6qwpt"]
@@ -65,49 +65,49 @@ mouse_filter = 1
 text = "A / D = walk
 SPACE = fire"
 
-[node name="level_segment2" parent="MapManager" instance=ExtResource("2_qwu24")]
+[node name="level_segment3" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -515)
 
-[node name="level_segment3" parent="MapManager" instance=ExtResource("2_qwu24")]
+[node name="level_segment4" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -1026)
 
-[node name="level_segment4" parent="MapManager" instance=ExtResource("2_qwu24")]
+[node name="level_segment5" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -1535)
 
-[node name="level_segment5" parent="MapManager" instance=ExtResource("2_qwu24")]
+[node name="level_segment6" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -2044)
 
-[node name="level_segment6" parent="MapManager" instance=ExtResource("2_qwu24")]
+[node name="level_segment7" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -2548)
 
-[node name="level_segment7" parent="MapManager" instance=ExtResource("2_qwu24")]
+[node name="level_segment8" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -3072)
 
-[node name="level_segment8" parent="MapManager" instance=ExtResource("2_qwu24")]
+[node name="level_segment9" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -3584)
 
-[node name="level_segment9" parent="MapManager" instance=ExtResource("2_qwu24")]
+[node name="level_segment10" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -4096)
 
-[node name="level_segment10" parent="MapManager" instance=ExtResource("2_qwu24")]
+[node name="level_segment11" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -4608)
 
-[node name="level_segment11" parent="MapManager" instance=ExtResource("2_qwu24")]
+[node name="level_segment12" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -5120)
 
-[node name="level_segment12" parent="MapManager" instance=ExtResource("2_qwu24")]
+[node name="level_segment13" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -5632)
 
-[node name="level_segment13" parent="MapManager" instance=ExtResource("2_qwu24")]
+[node name="level_segment14" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -6144)
 
-[node name="level_segment14" parent="MapManager" instance=ExtResource("2_qwu24")]
+[node name="level_segment15" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -6656)
 
-[node name="level_segment15" parent="MapManager" instance=ExtResource("2_qwu24")]
+[node name="level_segment16" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -7168)
 
-[node name="level_segment16" parent="MapManager" instance=ExtResource("2_qwu24")]
+[node name="level_segment17" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -7680)
 
 [node name="EnemyManager" type="Node2D" parent="."]
@@ -377,7 +377,7 @@ polygon = PackedVector2Array(-3, -7, 7, -7, 7, 3, -3, 3)
 color = Color(0.948911, 0.711973, 0.0371234, 1)
 polygon = PackedVector2Array(-2, 2, 6, 2, 6, -6, -2, -6)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Player"]
 
 [node name="UI Layer" type="CanvasLayer" parent="Player"]
 visible = false
@@ -414,7 +414,6 @@ polygon = PackedVector2Array(0, 0, 512, 0, 512, 504, 0, 504)
 
 [node name="Sprite2D" type="Sprite2D" parent="Win Screen"]
 position = Vector2(256, 256)
-texture = SubResource("GradientTexture2D_gmhaf")
 
 [node name="Lose Screen" type="Polygon2D" parent="."]
 visible = false
@@ -423,7 +422,6 @@ polygon = PackedVector2Array(0, 0, 512, 0, 512, 504, 0, 504)
 
 [node name="Sprite2D" type="Sprite2D" parent="Lose Screen"]
 position = Vector2(256, 256)
-texture = SubResource("GradientTexture2D_87gaw")
 
 [connection signal="timeout" from="EnemyManager/Vaporeon/Death Timer" to="EnemyManager/Vaporeon" method="_on_death_timer_timeout"]
 [connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]

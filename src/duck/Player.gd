@@ -15,28 +15,30 @@ var isMusicOn = false
 
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if hp >= 0:
 	
-	position.x += Input.get_axis("moveLeft", "moveRight") * move_speed * delta
-	position.y += Input.get_axis("moveUp", "moveDown") * move_speed * delta
+		position.x += Input.get_axis("moveLeft", "moveRight") * move_speed * delta
+		position.y += Input.get_axis("moveUp", "moveDown") * move_speed * delta
 	
-	position.x = clamp(position.x, BORDER_LEFT, BORDER_RIGHT)
-	position.y = clamp(position.y, BORDER_TOP, BORDER_BOTTOM)
-	#print("aa")
+		position.x = clamp(position.x, BORDER_LEFT, BORDER_RIGHT)
+		position.y = clamp(position.y, BORDER_TOP, BORDER_BOTTOM)
+		#print("aa")
 	
-	if Input.is_action_just_pressed("fire") and fireballs_ready > 0:
-		$AudioStreamPlayer2D.play()
-		var fireball = fireball_preload.instantiate()
-		fireball.position = position
-		fireball.connect("hit", fireball_gained)
-		
-		get_parent().add_child(fireball)
-		fireballs_ready -= 1
-		update_blipps()
+		if Input.is_action_just_pressed("fire") and fireballs_ready > 0:
+			$AudioStreamPlayer2D.play()
+			var fireball = fireball_preload.instantiate()
+			fireball.position = position
+			fireball.connect("hit", fireball_gained)
+			
+			get_parent().add_child(fireball)
+			fireballs_ready -= 1
+			update_blipps()
 
 func fireball_gained():
 	fireballs_ready += 1
@@ -76,3 +78,5 @@ func _on_area_entered(area):
 		else:
 			#flatline
 			pass
+		
+		monitorable = false
