@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Ddgaf"
+config/name="Duck Don't Give a Fuck"
+config/description="Happy biwfdway~"
 run/main_scene="res://src/level/world.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://src/duck/filteredduck.png"
 
 [display]
 
