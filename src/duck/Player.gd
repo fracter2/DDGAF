@@ -13,7 +13,8 @@ var fireballs_ready:int = 3
 var hp:int = 0
 var isMusicOn = false
 
-
+@onready var sprite1 = $Sprite2D
+@onready var sprite2 = $Sprite2D2
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,6 +23,11 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	sprite1.position.x = randf_range(-4, 4)
+	sprite1.position.y = randf_range(-4, 4)
+	sprite2.position.x = randf_range(-4, 4)
+	sprite2.position.y = randf_range(-4, 4)
+	
 	if hp >= 0:
 	
 		position.x += Input.get_axis("moveLeft", "moveRight") * move_speed * delta
@@ -34,14 +40,20 @@ func _process(delta):
 		if Input.is_action_just_pressed("fire") and fireballs_ready > 0:
 			if randi_range(0,9) < 9 : $Quack.play()
 			else: $Quack.play()  #$Honk.play() // I couldn't implement the honk mp3 for some reason
-				
+			
 			var fireball = fireball_preload.instantiate()
 			fireball.position = position
 			fireball.connect("hit", fireball_gained)
 			
 			get_parent().add_child(fireball)
 			fireballs_ready -= 1
+			
+			# visuals
 			update_blipps()
+			$SpriteSwitchTimer.start()
+			$Sprite2D2.visible = true
+			$Sprite2D.visible = false
+			
 
 func fireball_gained():
 	fireballs_ready += 1
@@ -62,7 +74,7 @@ func update_blipps():
 func _on_area_entered(area):
 	# take damage
 	area.damage(2)
-	hp -= 1
+	if hp < 0: hp -= 1
 	
 	$"UI Layer".take_damage()
 	
@@ -93,3 +105,8 @@ func _on_area_entered(area):
 func _on_start_timer_timeout():
 	hp = 3
 	visible = true
+
+
+func _on_sprite_switch_timer_timeout():
+	$Sprite2D2.visible = false
+	$Sprite2D.visible = true
