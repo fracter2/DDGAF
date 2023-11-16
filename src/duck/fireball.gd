@@ -13,7 +13,7 @@ func _process(delta):
 
 
 func _on_area_entered(area):
-	area.damage()
+	area.damage(1)
 	despawn()
 	
 	

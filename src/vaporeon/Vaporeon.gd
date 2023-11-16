@@ -95,6 +95,6 @@ func testicle_destroyed():
 
 
 func _on_death_timer_timeout():
-	$"../Win Screen".visible = true
+	$"../../Win Screen".visible = true
 	
 	queue_free()
