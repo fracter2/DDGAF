@@ -32,7 +32,9 @@ func _process(delta):
 		#print("aa")
 	
 		if Input.is_action_just_pressed("fire") and fireballs_ready > 0:
-			$AudioStreamPlayer2D.play()
+			if randi_range(0,9) < 9 : $Quack.play()
+			else: $Quack.play()  #$Honk.play() // I couldn't implement the honk mp3 for some reason
+				
 			var fireball = fireball_preload.instantiate()
 			fireball.position = position
 			fireball.connect("hit", fireball_gained)
@@ -61,14 +63,14 @@ func _on_area_entered(area):
 	# take damage
 	area.damage(2)
 	hp -= 1
-	$hurtSfx.play()
+	
 	$"UI Layer".take_damage()
 	
 	if hp == 2:
-		# TODO: first dmg sound
+		$hurtSfx.play()
 		pass
 	if hp == 1:
-		# TODO: secpmd dmg sound
+		$InternalBleeding.play()
 		pass
 	
 	# Deaths
@@ -77,11 +79,11 @@ func _on_area_entered(area):
 		
 		if $"../EnemyManager/Vaporeon".active == true:
 			# killed by vaporeon sgfx
-			pass 
+			$KilledByVaporeon.play()
 		
 		else:
 			#flatline
-			pass
+			$Flatline.play()
 		
 		monitorable = false
 
