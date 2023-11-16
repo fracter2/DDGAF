@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://bj7twvx1wyiyq"]
+[gd_scene load_steps=32 format=3 uid="uid://bj7twvx1wyiyq"]
 
+[ext_resource type="Script" path="res://src/camera/Camera.gd" id="1_2fvy8"]
 [ext_resource type="PackedScene" uid="uid://bpooxc27b8iqh" path="res://src/menu/Main Menu.tscn" id="1_hrsc2"]
 [ext_resource type="Script" path="res://src/level/EnemyManager.gd" id="1_ny70u"]
 [ext_resource type="Script" path="res://src/duck/Player.gd" id="2_fdni3"]
@@ -14,6 +15,12 @@
 [ext_resource type="AudioStream" uid="uid://cpyd4i3tijmyn" path="res://src/duck/FoofNoises.mp3" id="7_j8nfn"]
 [ext_resource type="Script" path="res://src/duck/UI Layer.gd" id="7_mun4r"]
 [ext_resource type="Texture2D" uid="uid://jgkfkkogue4f" path="res://src/tree/heart (1).png" id="8_6qwpt"]
+[ext_resource type="Texture2D" uid="uid://cbu0nkieahuk0" path="res://src/duck/duckatackccccc.png" id="12_231jb"]
+[ext_resource type="Script" path="res://src/intro/Cutscene.gd" id="13_dl8w5"]
+[ext_resource type="AudioStream" uid="uid://6xi1hw417fri" path="res://src/intro/menu_effect_arp_up.mp3" id="15_fjqty"]
+[ext_resource type="AudioStream" uid="uid://b2cmfp4kih81c" path="res://src/intro/HLPickupSound.mp3" id="16_5gah8"]
+[ext_resource type="AudioStream" uid="uid://tjcrjaubtu3c" path="res://src/intro/EngagedInAss.mp3" id="17_odsdt"]
+[ext_resource type="Texture2D" uid="uid://c71sf886qrmhr" path="res://src/level/road.png" id="19_3l0bk"]
 
 [sub_resource type="Environment" id="Environment_7h5q0"]
 background_mode = 3
@@ -37,6 +44,105 @@ metadata/_snap_enabled = true
 [sub_resource type="CircleShape2D" id="CircleShape2D_78e8l"]
 radius = 11.0454
 
+[sub_resource type="Animation" id="Animation_24uth"]
+resource_name = "Cutscene"
+length = 8.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Duck fake:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(104, 472), Vector2(256, 472)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pickup sfx")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("16_5gah8")
+}],
+"times": PackedFloat32Array(2.5)
+}
+tracks/1/use_blend = true
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EngagedInAss")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("17_odsdt")
+}],
+"times": PackedFloat32Array(3.4)
+}
+tracks/2/use_blend = true
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StartButtonArp")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_fjqty")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Battery:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_inrkt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Battery:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hfoib"]
+_data = {
+"Cutscene": SubResource("Animation_24uth"),
+"RESET": SubResource("Animation_inrkt")
+}
+
+[sub_resource type="Gradient" id="Gradient_6g73l"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i2vjx"]
+gradient = SubResource("Gradient_6g73l")
+
 [node name="world" type="Node2D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -48,11 +154,14 @@ script = ExtResource("1_ny70u")
 [node name="level_segment" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -5)
 
+[node name="level_segment18" parent="MapManager" instance=ExtResource("2_qwu24")]
+position = Vector2(0, 504)
+
 [node name="level_segment2" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -512)
 
 [node name="Instructions" type="Polygon2D" parent="MapManager/level_segment2"]
-position = Vector2(-44, 221)
+position = Vector2(-56, 216)
 color = Color(0.266667, 0.266667, 0.266667, 1)
 polygon = PackedVector2Array(88, 200, 192, 200, 192, 256, 88, 256)
 
@@ -64,9 +173,6 @@ offset_bottom = 226.0
 mouse_filter = 1
 text = "A / D = walk
 SPACE = fire"
-
-[node name="level_segment3" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -515)
 
 [node name="level_segment4" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -1026)
@@ -332,9 +438,11 @@ color = Color(0, 0.597465, 0.559091, 1)
 polygon = PackedVector2Array(-144, -48, -56, -24, 72, -24, 160, -48)
 
 [node name="Player" type="Area2D" parent="."]
+visible = false
 position = Vector2(258, 470)
 collision_mask = 5
 script = ExtResource("2_fdni3")
+metadata/_edit_group_ = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("6_2h4er")
@@ -342,10 +450,17 @@ stream = ExtResource("6_2h4er")
 [node name="hurtSfx" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("7_j8nfn")
 
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Player"]
+
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(1, 1)
 scale = Vector2(0.337871, 0.272358)
 texture = ExtResource("5_cvbol")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Player"]
+position = Vector2(1, 1)
+scale = Vector2(0.337871, 0.272358)
+texture = ExtResource("12_231jb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_78e8l")
@@ -377,8 +492,6 @@ polygon = PackedVector2Array(-3, -7, 7, -7, 7, 3, -3, 3)
 color = Color(0.948911, 0.711973, 0.0371234, 1)
 polygon = PackedVector2Array(-2, 2, 6, 2, 6, -6, -2, -6)
 
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Player"]
-
 [node name="UI Layer" type="CanvasLayer" parent="Player"]
 visible = false
 script = ExtResource("7_mun4r")
@@ -398,14 +511,80 @@ position = Vector2(48, 328)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_6qwpt")
 
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_3wwtw")
-volume_db = 12.392
+[node name="SpriteSwitchTimer" type="Timer" parent="Player"]
+wait_time = 0.3
 
-[node name="MainMenu" parent="." instance=ExtResource("1_hrsc2")]
-visible = false
-offset_right = 516.0
-offset_bottom = 516.0
+[node name="Cutscene" type="Node2D" parent="."]
+script = ExtResource("13_dl8w5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cutscene"]
+libraries = {
+"": SubResource("AnimationLibrary_hfoib")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="Cutscene"]
+position = Vector2(256, 400)
+scale = Vector2(0.4803, 0.4803)
+texture = ExtResource("19_3l0bk")
+
+[node name="Battery" type="Sprite2D" parent="Cutscene"]
+position = Vector2(256, 472)
+texture = SubResource("GradientTexture2D_i2vjx")
+
+[node name="Duck fake" type="Sprite2D" parent="Cutscene"]
+position = Vector2(104, 472)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_cvbol")
+
+[node name="StartTimer" type="Timer" parent="Cutscene"]
+wait_time = 9.5
+one_shot = true
+
+[node name="VibrationTimer" type="Timer" parent="Cutscene"]
+wait_time = 8.5
+one_shot = true
+
+[node name="ZoomoutTimer" type="Timer" parent="Cutscene"]
+wait_time = 9.5
+one_shot = true
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="Cutscene"]
+stream = ExtResource("6_3wwtw")
+volume_db = 5.32
+
+[node name="StartButtonArp" type="AudioStreamPlayer" parent="Cutscene"]
+stream = ExtResource("15_fjqty")
+
+[node name="Pickup sfx" type="AudioStreamPlayer" parent="Cutscene"]
+stream = ExtResource("16_5gah8")
+
+[node name="RepeatedQuack" type="AudioStreamPlayer" parent="Cutscene"]
+stream = ExtResource("6_2h4er")
+
+[node name="EngagedInAss" type="AudioStreamPlayer" parent="Cutscene"]
+stream = ExtResource("17_odsdt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(256, 456)
+zoom = Vector2(2, 2)
+script = ExtResource("1_2fvy8")
+
+[node name="MainMenu" parent="Camera2D" instance=ExtResource("1_hrsc2")]
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+color = Color(0.164706, 0.164706, 0.164706, 0.537255)
+metadata/_edit_use_anchors_ = true
+
+[node name="Container" parent="Camera2D/MainMenu" index="0"]
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 32
+
+[node name="ButtonPlay" parent="Camera2D/MainMenu/Container" index="1"]
+theme_override_font_sizes/font_size = 10
 
 [node name="Win Screen" type="Polygon2D" parent="."]
 visible = false
@@ -425,9 +604,13 @@ position = Vector2(256, 256)
 
 [connection signal="timeout" from="EnemyManager/Vaporeon/Death Timer" to="EnemyManager/Vaporeon" method="_on_death_timer_timeout"]
 [connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]
-[connection signal="button_down" from="MainMenu/Container/ButtonPlay" to="MapManager" method="_on_button_play_button_down"]
-[connection signal="button_down" from="MainMenu/Container/ButtonPlay" to="EnemyManager" method="_on_button_play_button_down"]
-[connection signal="button_down" from="MainMenu/Container/ButtonPlay" to="Player" method="_on_button_play_button_down"]
-[connection signal="button_down" from="MainMenu/Container/ButtonPlay" to="Player/UI Layer" method="_on_button_play_button_down"]
+[connection signal="timeout" from="Cutscene/StartTimer" to="MapManager" method="_on_start_timer_timeout"]
+[connection signal="timeout" from="Cutscene/StartTimer" to="EnemyManager" method="_on_start_timer_timeout"]
+[connection signal="timeout" from="Cutscene/StartTimer" to="Player" method="_on_start_timer_timeout"]
+[connection signal="timeout" from="Cutscene/StartTimer" to="Player/UI Layer" method="_on_start_timer_timeout"]
+[connection signal="timeout" from="Cutscene/StartTimer" to="Cutscene" method="_on_start_timer_timeout"]
+[connection signal="timeout" from="Cutscene/VibrationTimer" to="Cutscene" method="_on_vibration_timer_timeout"]
+[connection signal="timeout" from="Cutscene/ZoomoutTimer" to="Cutscene" method="_on_zoomout_timer_timeout"]
+[connection signal="button_down" from="Camera2D/MainMenu/Container/ButtonPlay" to="Cutscene" method="_on_button_play_button_down"]
 
-[editable path="MainMenu"]
+[editable path="Camera2D/MainMenu"]

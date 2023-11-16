@@ -86,6 +86,8 @@ func _on_area_entered(area):
 		monitorable = false
 
 
-func _on_button_play_button_down():
+
+
+func _on_start_timer_timeout():
 	hp = 3
-	# later it will start with the cutscene thingy
+	visible = true
