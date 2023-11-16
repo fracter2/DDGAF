@@ -34,7 +34,7 @@ func _process(delta):
 
 
 func damage(ammount:int = 2):
-	$die.play()
+	#$die.play() #instead played by the fireball now
 	hp -= ammount
 	position.y -= 40
 	if hp <= 0: queue_free()

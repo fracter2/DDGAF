@@ -1,7 +1,7 @@
 extends Node2D
 
 var speed = 350
-
+var fireballsfx_preload = preload("res://src/duck/firebal_sfx.tscn")
 signal hit
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,5 +21,7 @@ func _on_area_entered(area):
 
 func despawn():
 	hit.emit()
+	var sfx = fireballsfx_preload.instantiate()
+	get_parent().add_child(sfx)
 	queue_free()
 	# TODO HIT SOUIMD
