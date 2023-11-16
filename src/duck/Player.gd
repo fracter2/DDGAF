@@ -10,7 +10,7 @@ const BORDER_TOP:int = 400
 const fireball_preload = preload("res://src/duck/fireball.tscn")
 var fireballs_ready:int = 3
 
-var hp:int = 3
+var hp:int = 0
 var isMusicOn = false
 
 
@@ -19,6 +19,7 @@ var isMusicOn = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if hp >= 0:
@@ -53,6 +54,9 @@ func update_blipps():
 	else: get_node("Fireball Blipp3").visible = false
 
 
+
+
+# if it gets damaged
 func _on_area_entered(area):
 	# take damage
 	area.damage(2)
@@ -80,3 +84,8 @@ func _on_area_entered(area):
 			pass
 		
 		monitorable = false
+
+
+func _on_button_play_button_down():
+	hp = 3
+	# later it will start with the cutscene thingy
