@@ -6,7 +6,7 @@ var cruise_speed:float = 60
 var active:bool = false
 var cruising:bool = false
 
-var hp:int = 2
+signal destroyed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,13 +33,16 @@ func _process(delta):
 
 
 
-func damage():
-	hp -= 1
-	position.y -= 40
-	if hp <= 0: queue_free()
+func damage(ammount: int = 1):
+	$Sprite2D.visible = false
+	#Death sfx
+	#explostion sfx
+	$DeathCountdown.start()
+	monitorable = false
 
 
 func _on_death_countdown_timeout():
+	destroyed.emit()
 	queue_free()
 
 

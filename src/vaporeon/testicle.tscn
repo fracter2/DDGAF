@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cafe71f8xma4d"]
+
+[ext_resource type="Script" path="res://src/vaporeon/testicle.gd" id="1_yqv6w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e2hx4"]
+
+[sub_resource type="Gradient" id="Gradient_u8ct2"]
+offsets = PackedFloat32Array(0.634731, 0.658683)
+colors = PackedColorArray(0.203922, 0.203922, 1, 1, 0.380392, 0.380392, 0.380392, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_08a8l"]
+gradient = SubResource("Gradient_u8ct2")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[node name="testicle" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_yqv6w")
+
+[node name="Area2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e2hx4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_08a8l")
+
+[node name="DeathCountdown" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="Jiggle Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="DeathCountdown" to="." method="_on_death_countdown_timeout"]
+[connection signal="timeout" from="Jiggle Timer" to="." method="_on_jiggle_timer_timeout"]

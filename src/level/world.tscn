@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bj7twvx1wyiyq"]
+[gd_scene load_steps=20 format=3 uid="uid://bj7twvx1wyiyq"]
 
 [ext_resource type="PackedScene" uid="uid://bpooxc27b8iqh" path="res://src/menu/Main Menu.tscn" id="1_hrsc2"]
 [ext_resource type="Script" path="res://src/level/EnemyManager.gd" id="1_ny70u"]
@@ -7,11 +7,28 @@
 [ext_resource type="PackedScene" uid="uid://dvrtdejyn1gug" path="res://src/boykisser/BoyKisser.tscn" id="3_vcv8v"]
 [ext_resource type="PackedScene" uid="uid://bdjyog7kfbog4" path="res://src/tree/tree.tscn" id="4_n3op0"]
 [ext_resource type="Texture2D" uid="uid://dsahx7yywjve6" path="res://src/duck/filteredduck.png" id="5_cvbol"]
+[ext_resource type="Script" path="res://src/vaporeon/Vaporeon.gd" id="5_ooj2w"]
+[ext_resource type="Script" path="res://src/level/Barrierr.gd" id="6_51d3p"]
 [ext_resource type="Script" path="res://src/duck/UI Layer.gd" id="7_mun4r"]
 
 [sub_resource type="Environment" id="Environment_7h5q0"]
 background_mode = 3
 tonemap_mode = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbfrh"]
+size = Vector2(128, 128)
+
+[sub_resource type="Gradient" id="Gradient_y5u4p"]
+offsets = PackedFloat32Array(0, 0.808383, 1)
+colors = PackedColorArray(0, 0, 0.780392, 1, 0.0958084, 0.0958084, 0.801432, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wr86n"]
+gradient = SubResource("Gradient_y5u4p")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_78e8l"]
 radius = 11.0454
@@ -27,6 +44,11 @@ height = 32
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_mfujf"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gmhaf"]
+gradient = SubResource("Gradient_mfujf")
 
 [node name="world" type="Node2D"]
 
@@ -74,6 +96,30 @@ position = Vector2(0, -3072)
 [node name="level_segment8" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -3584)
 
+[node name="level_segment9" parent="MapManager" instance=ExtResource("2_qwu24")]
+position = Vector2(0, -4096)
+
+[node name="level_segment10" parent="MapManager" instance=ExtResource("2_qwu24")]
+position = Vector2(0, -4608)
+
+[node name="level_segment11" parent="MapManager" instance=ExtResource("2_qwu24")]
+position = Vector2(0, -5120)
+
+[node name="level_segment12" parent="MapManager" instance=ExtResource("2_qwu24")]
+position = Vector2(0, -5632)
+
+[node name="level_segment13" parent="MapManager" instance=ExtResource("2_qwu24")]
+position = Vector2(0, -6144)
+
+[node name="level_segment14" parent="MapManager" instance=ExtResource("2_qwu24")]
+position = Vector2(0, -6656)
+
+[node name="level_segment15" parent="MapManager" instance=ExtResource("2_qwu24")]
+position = Vector2(0, -7168)
+
+[node name="level_segment16" parent="MapManager" instance=ExtResource("2_qwu24")]
+position = Vector2(0, -7680)
+
 [node name="EnemyManager" type="Node2D" parent="."]
 script = ExtResource("1_ny70u")
 
@@ -118,6 +164,66 @@ position = Vector2(176, -2816)
 
 [node name="BoyKisser19" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
 position = Vector2(72, -2968)
+
+[node name="BoyKisser22" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(72, -3696)
+
+[node name="BoyKisser23" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(400, -3704)
+
+[node name="BoyKisser24" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(384, -3896)
+
+[node name="BoyKisser25" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(80, -3896)
+
+[node name="BoyKisser26" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(72, -4096)
+
+[node name="BoyKisser28" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(64, -4264)
+
+[node name="BoyKisser29" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(400, -4272)
+
+[node name="BoyKisser30" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(400, -4472)
+
+[node name="BoyKisser31" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(64, -4488)
+
+[node name="BoyKisser32" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(64, -4688)
+
+[node name="BoyKisser33" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(392, -4696)
+
+[node name="BoyKisser34" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(392, -4872)
+
+[node name="BoyKisser35" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(72, -4880)
+
+[node name="BoyKisser36" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(72, -5088)
+
+[node name="BoyKisser37" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(416, -5080)
+
+[node name="BoyKisser38" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(400, -5272)
+
+[node name="BoyKisser39" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(64, -5280)
+
+[node name="BoyKisser40" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(64, -5480)
+
+[node name="BoyKisser41" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(400, -5496)
+
+[node name="BoyKisser27" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
+position = Vector2(384, -4088)
 
 [node name="BoyKisser20" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
 position = Vector2(438, -2984)
@@ -200,6 +306,41 @@ position = Vector2(357, -736)
 [node name="tree10" parent="EnemyManager" instance=ExtResource("4_n3op0")]
 position = Vector2(160, -312)
 
+[node name="Vaporeon" type="Area2D" parent="EnemyManager"]
+position = Vector2(256, -3488)
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("5_ooj2w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyManager/Vaporeon"]
+shape = SubResource("RectangleShape2D_tbfrh")
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyManager/Vaporeon"]
+texture = SubResource("GradientTexture2D_wr86n")
+
+[node name="Death Timer" type="Timer" parent="EnemyManager/Vaporeon"]
+
+[node name="spawnpoint1" type="Marker2D" parent="EnemyManager/Vaporeon"]
+position = Vector2(-192, 96)
+
+[node name="spawnpoint2" type="Marker2D" parent="EnemyManager/Vaporeon"]
+position = Vector2(192, 96)
+
+[node name="Barrierr" type="Area2D" parent="EnemyManager/Vaporeon"]
+position = Vector2(0, 112)
+collision_layer = 4
+monitoring = false
+script = ExtResource("6_51d3p")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnemyManager/Vaporeon/Barrierr"]
+polygon = PackedVector2Array(-152, -24, -64, 0, 64, 0, 152, -24)
+
+[node name="Barrierr" type="Polygon2D" parent="EnemyManager/Vaporeon/Barrierr"]
+position = Vector2(-8, 24)
+color = Color(0, 0.597465, 0.559091, 1)
+polygon = PackedVector2Array(-144, -48, -56, -24, 72, -24, 160, -48)
+
 [node name="Player" type="Area2D" parent="."]
 position = Vector2(258, 470)
 collision_mask = 5
@@ -240,6 +381,8 @@ polygon = PackedVector2Array(-3, -7, 7, -7, 7, 3, -3, 3)
 color = Color(0.948911, 0.711973, 0.0371234, 1)
 polygon = PackedVector2Array(-2, 2, 6, 2, 6, -6, -2, -6)
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+
 [node name="UI Layer" type="CanvasLayer" parent="Player"]
 visible = false
 script = ExtResource("7_mun4r")
@@ -261,6 +404,25 @@ visible = false
 offset_right = 516.0
 offset_bottom = 516.0
 
+[node name="Win Screen" type="Polygon2D" parent="."]
+visible = false
+color = Color(0.2, 0.2, 0.2, 1)
+polygon = PackedVector2Array(0, 0, 512, 0, 512, 504, 0, 504)
+
+[node name="Sprite2D" type="Sprite2D" parent="Win Screen"]
+position = Vector2(256, 256)
+texture = SubResource("GradientTexture2D_gmhaf")
+
+[node name="Lose Screen" type="Polygon2D" parent="."]
+visible = false
+color = Color(0.2, 0.2, 0.2, 1)
+polygon = PackedVector2Array(0, 0, 512, 0, 512, 504, 0, 504)
+
+[node name="Sprite2D" type="Sprite2D" parent="Lose Screen"]
+position = Vector2(256, 256)
+texture = SubResource("GradientTexture2D_gmhaf")
+
+[connection signal="timeout" from="EnemyManager/Vaporeon/Death Timer" to="EnemyManager/Vaporeon" method="_on_death_timer_timeout"]
 [connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]
 [connection signal="button_down" from="MainMenu/Container/ButtonPlay" to="MapManager" method="_on_button_play_button_down"]
 [connection signal="button_down" from="MainMenu/Container/ButtonPlay" to="EnemyManager" method="_on_button_play_button_down"]

@@ -10,6 +10,7 @@ const BORDER_TOP:int = 400
 const fireball_preload = preload("res://src/duck/fireball.tscn")
 var fireballs_ready:int = 3
 
+var hp:int = 3
 
 
 
@@ -51,5 +52,17 @@ func update_blipps():
 
 func _on_area_entered(area):
 	# take damage
-	area.damage()
+	area.damage(2)
+	hp -= 1
 	$"UI Layer".take_damage()
+	
+	if hp <= 0:
+		$"../Lose Screen".visible = true
+		
+		if $"../EnemyManager/Vaporeon".active == true:
+			# killed by vaporeon sgfx
+			pass 
+		
+		else:
+			#flatline
+			pass

@@ -20,12 +20,8 @@ func _process(delta):
 
 
 
-func damage():
-	$Sprite2D.visible = false
-	#Death sfx
-	#explostion sfx
-	$DeathCountdown.start()
-	monitorable = false
+func damage(ammount:int = 1):
+	queue_free()
 
 
 func _on_death_countdown_timeout():
