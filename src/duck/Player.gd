@@ -11,16 +11,16 @@ const fireball_preload = preload("res://src/duck/fireball.tscn")
 var fireballs_ready:int = 3
 
 var hp:int = 3
+var isMusicOn = false
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	position.x += Input.get_axis("moveLeft", "moveRight") * move_speed * delta
 	position.y += Input.get_axis("moveUp", "moveDown") * move_speed * delta
 	
@@ -29,6 +29,7 @@ func _process(delta):
 	#print("aa")
 	
 	if Input.is_action_just_pressed("fire") and fireballs_ready > 0:
+		$AudioStreamPlayer2D.play()
 		var fireball = fireball_preload.instantiate()
 		fireball.position = position
 		fireball.connect("hit", fireball_gained)
@@ -54,6 +55,7 @@ func _on_area_entered(area):
 	# take damage
 	area.damage(2)
 	hp -= 1
+	$hurtSfx.play()
 	$"UI Layer".take_damage()
 	
 	if hp == 2:

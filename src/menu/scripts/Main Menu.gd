@@ -5,6 +5,7 @@ func _ready():
 	visible = true
 
 func _on_button_play_button_down():
+	get_parent().get_node("AudioStreamPlayer2D2").play()
 	queue_free()
 
 

@@ -9,7 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://dsahx7yywjve6" path="res://src/duck/filteredduck.png" id="5_cvbol"]
 [ext_resource type="Script" path="res://src/vaporeon/Vaporeon.gd" id="5_ooj2w"]
 [ext_resource type="Script" path="res://src/level/Barrierr.gd" id="6_51d3p"]
+[ext_resource type="AudioStream" uid="uid://dtwy1cohuki2o" path="res://src/duck/Quack.mp3" id="6_2h4er"]
+[ext_resource type="AudioStream" uid="uid://b220svkfy7fqs" path="res://src/HonkDoom.mp3" id="6_3wwtw"]
+[ext_resource type="AudioStream" uid="uid://cpyd4i3tijmyn" path="res://src/duck/FoofNoises.mp3" id="7_j8nfn"]
 [ext_resource type="Script" path="res://src/duck/UI Layer.gd" id="7_mun4r"]
+[ext_resource type="Texture2D" uid="uid://jgkfkkogue4f" path="res://src/tree/heart (1).png" id="8_6qwpt"]
 
 [sub_resource type="Environment" id="Environment_7h5q0"]
 background_mode = 3
@@ -33,30 +37,6 @@ metadata/_snap_enabled = true
 [sub_resource type="CircleShape2D" id="CircleShape2D_78e8l"]
 radius = 11.0454
 
-[sub_resource type="Gradient" id="Gradient_3xfkp"]
-offsets = PackedFloat32Array(0.538922, 0.640719, 0.736527, 0.814371)
-colors = PackedColorArray(0.999497, 0.373456, 0.427043, 1, 0.584773, 0.263907, 0.30142, 1, 0.0910532, 0.133491, 0.151869, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_a10h8"]
-gradient = SubResource("Gradient_3xfkp")
-width = 32
-height = 32
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-metadata/_snap_enabled = true
-
-[sub_resource type="Gradient" id="Gradient_mfujf"]
-offsets = PackedFloat32Array(0, 0.174194)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gmhaf"]
-gradient = SubResource("Gradient_mfujf")
-
-[sub_resource type="Gradient" id="Gradient_uq36l"]
-offsets = PackedFloat32Array(0.796407, 0.958084)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_87gaw"]
-gradient = SubResource("Gradient_uq36l")
-
 [node name="world" type="Node2D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -66,7 +46,7 @@ environment = SubResource("Environment_7h5q0")
 script = ExtResource("1_ny70u")
 
 [node name="level_segment" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -8)
+position = Vector2(0, -5)
 
 [node name="level_segment2" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -512)
@@ -85,17 +65,20 @@ mouse_filter = 1
 text = "A / D = walk
 SPACE = fire"
 
+[node name="level_segment2" parent="MapManager" instance=ExtResource("2_qwu24")]
+position = Vector2(0, -515)
+
 [node name="level_segment3" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -1024)
+position = Vector2(0, -1026)
 
 [node name="level_segment4" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -1536)
+position = Vector2(0, -1535)
 
 [node name="level_segment5" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -2048)
+position = Vector2(0, -2044)
 
 [node name="level_segment6" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -2560)
+position = Vector2(0, -2548)
 
 [node name="level_segment7" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -3072)
@@ -353,6 +336,12 @@ position = Vector2(258, 470)
 collision_mask = 5
 script = ExtResource("2_fdni3")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("6_2h4er")
+
+[node name="hurtSfx" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("7_j8nfn")
+
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(1, 1)
 scale = Vector2(0.337871, 0.272358)
@@ -396,15 +385,22 @@ script = ExtResource("7_mun4r")
 
 [node name="HP1" type="Sprite2D" parent="Player/UI Layer"]
 position = Vector2(48, 408)
-texture = SubResource("GradientTexture2D_a10h8")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_6qwpt")
 
 [node name="HP2" type="Sprite2D" parent="Player/UI Layer"]
 position = Vector2(48, 368)
-texture = SubResource("GradientTexture2D_a10h8")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_6qwpt")
 
 [node name="HP3" type="Sprite2D" parent="Player/UI Layer"]
 position = Vector2(48, 328)
-texture = SubResource("GradientTexture2D_a10h8")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_6qwpt")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_3wwtw")
+volume_db = 12.392
 
 [node name="MainMenu" parent="." instance=ExtResource("1_hrsc2")]
 visible = false
