@@ -12,6 +12,7 @@ var fireballs_ready:int = 3
 
 var hp:int = 0
 var isMusicOn = false
+var has_won:bool = false
 
 @onready var sprite1 = $Sprite2D
 @onready var sprite2 = $Sprite2D2
@@ -23,10 +24,10 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	sprite1.position.x = randf_range(-4, 4)
-	sprite1.position.y = randf_range(-4, 4)
-	sprite2.position.x = randf_range(-4, 4)
-	sprite2.position.y = randf_range(-4, 4)
+	sprite1.position.x = randf_range(-2, 2)
+	sprite1.position.y = randf_range(-2, 2)
+	sprite2.position.x = randf_range(-2, 2)
+	sprite2.position.y = randf_range(-2, 2)
 	
 	if hp >= 0:
 	
@@ -72,9 +73,13 @@ func update_blipps():
 
 # if it gets damaged
 func _on_area_entered(area):
-	# take damage
+	if has_won: return # skips the rest
+	
+	# thorns attack damage
 	area.damage(2)
-	if hp < 0: hp -= 1
+	
+	# take damage
+	if hp > 0: hp -= 1
 	
 	$"UI Layer".take_damage()
 	

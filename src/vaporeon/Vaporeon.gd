@@ -31,6 +31,7 @@ func _process(delta):
 			active = true
 			spawn_testicles(testies_spawned)
 			testies_active = testies_spawned
+			$Copypasta.play()
 	
 	if active and not vourlnable:
 		pass
@@ -66,7 +67,7 @@ func damage(ammount:int = 1): # to the vaporeor
 	
 	
 	if hp <= 0:
-		# TODO: death sfx
+		$Moahn.play()
 		vourlnable = false
 		$"Death Timer".start()
 	
@@ -96,5 +97,6 @@ func testicle_destroyed():
 
 func _on_death_timer_timeout():
 	$"../../Win Screen".visible = true
+	$"../../Player"
 	
 	#queue_free()
