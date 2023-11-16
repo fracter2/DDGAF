@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bj7twvx1wyiyq"]
+[gd_scene load_steps=37 format=3 uid="uid://bj7twvx1wyiyq"]
 
 [ext_resource type="Script" path="res://src/camera/Camera.gd" id="1_2fvy8"]
 [ext_resource type="PackedScene" uid="uid://bpooxc27b8iqh" path="res://src/menu/Main Menu.tscn" id="1_hrsc2"]
@@ -12,8 +12,10 @@
 [ext_resource type="AudioStream" uid="uid://dtwy1cohuki2o" path="res://src/duck/Quack.mp3" id="6_2h4er"]
 [ext_resource type="AudioStream" uid="uid://b220svkfy7fqs" path="res://src/HonkDoom.mp3" id="6_3wwtw"]
 [ext_resource type="Script" path="res://src/level/Barrierr.gd" id="6_51d3p"]
+[ext_resource type="Texture2D" uid="uid://3du1by0qowc0" path="res://src/vaporeon/horniporeon.png" id="6_qnk1e"]
 [ext_resource type="AudioStream" uid="uid://cpyd4i3tijmyn" path="res://src/duck/FoofNoises.mp3" id="7_j8nfn"]
 [ext_resource type="Script" path="res://src/duck/UI Layer.gd" id="7_mun4r"]
+[ext_resource type="AudioStream" uid="uid://ddbmt2ryqeihp" path="res://src/vaporeon/VaporeonCopypasta.mp3" id="8_2e8wu"]
 [ext_resource type="Texture2D" uid="uid://jgkfkkogue4f" path="res://src/tree/heart (1).png" id="8_6qwpt"]
 [ext_resource type="AudioStream" uid="uid://c4uacm2753v0c" path="res://src/duck/InternalBleeding.mp3" id="10_r6ca6"]
 [ext_resource type="AudioStream" uid="uid://bj3fi4lvtj8gq" path="res://src/duck/Flatline.mp3" id="11_kdvnm"]
@@ -24,6 +26,10 @@
 [ext_resource type="AudioStream" uid="uid://b2cmfp4kih81c" path="res://src/intro/HLPickupSound.mp3" id="16_5gah8"]
 [ext_resource type="AudioStream" uid="uid://tjcrjaubtu3c" path="res://src/intro/EngagedInAss.mp3" id="17_odsdt"]
 [ext_resource type="Texture2D" uid="uid://c71sf886qrmhr" path="res://src/level/road.png" id="19_3l0bk"]
+[ext_resource type="Texture2D" uid="uid://nw44g8v0rct8" path="res://src/intro/battery.png" id="23_yf5po"]
+[ext_resource type="Texture2D" uid="uid://dsa66vhkhdei6" path="res://src/menu/credits.png" id="25_2h6iw"]
+[ext_resource type="Texture2D" uid="uid://ctdqobhkembmc" path="res://src/menu/You won screen.png" id="26_wlay1"]
+[ext_resource type="Texture2D" uid="uid://cvn46lvdf0al7" path="res://src/menu/You lost screen.png" id="27_x75x0"]
 
 [sub_resource type="Environment" id="Environment_7h5q0"]
 background_mode = 3
@@ -31,18 +37,6 @@ tonemap_mode = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tbfrh"]
 size = Vector2(128, 128)
-
-[sub_resource type="Gradient" id="Gradient_y5u4p"]
-offsets = PackedFloat32Array(0, 0.808383, 1)
-colors = PackedColorArray(0, 0, 0.780392, 1, 0.0958084, 0.0958084, 0.801432, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_wr86n"]
-gradient = SubResource("Gradient_y5u4p")
-width = 128
-height = 128
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-metadata/_snap_enabled = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_78e8l"]
 radius = 11.0454
@@ -140,11 +134,6 @@ _data = {
 "Cutscene": SubResource("Animation_24uth"),
 "RESET": SubResource("Animation_inrkt")
 }
-
-[sub_resource type="Gradient" id="Gradient_6g73l"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_i2vjx"]
-gradient = SubResource("Gradient_6g73l")
 
 [node name="world" type="Node2D"]
 
@@ -578,7 +567,8 @@ script = ExtResource("5_ooj2w")
 shape = SubResource("RectangleShape2D_tbfrh")
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemyManager/Vaporeon"]
-texture = SubResource("GradientTexture2D_wr86n")
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("6_qnk1e")
 
 [node name="Death Timer" type="Timer" parent="EnemyManager/Vaporeon"]
 
@@ -603,7 +593,8 @@ color = Color(0, 0.597465, 0.559091, 1)
 polygon = PackedVector2Array(-144, -48, -56, -24, 72, -24, 160, -48)
 
 [node name="Copypasta" type="AudioStreamPlayer" parent="EnemyManager/Vaporeon"]
-stream = ExtResource("7_j8nfn")
+stream = ExtResource("8_2e8wu")
+volume_db = 10.306
 
 [node name="Moahn" type="AudioStreamPlayer" parent="EnemyManager/Vaporeon"]
 stream = ExtResource("7_j8nfn")
@@ -711,7 +702,8 @@ texture = ExtResource("19_3l0bk")
 
 [node name="Battery" type="Sprite2D" parent="Cutscene"]
 position = Vector2(256, 472)
-texture = SubResource("GradientTexture2D_i2vjx")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_yf5po")
 
 [node name="Duck fake" type="Sprite2D" parent="Cutscene"]
 position = Vector2(104, 472)
@@ -765,6 +757,10 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 32
 
+[node name="Credits" parent="Camera2D/MainMenu/Container/VBoxContainer" index="0"]
+texture = ExtResource("25_2h6iw")
+expand_mode = 4
+
 [node name="ButtonPlay" parent="Camera2D/MainMenu/Container" index="1"]
 theme_override_font_sizes/font_size = 10
 
@@ -775,6 +771,8 @@ polygon = PackedVector2Array(0, 0, 512, 0, 512, 504, 0, 504)
 
 [node name="Sprite2D" type="Sprite2D" parent="Win Screen"]
 position = Vector2(256, 256)
+scale = Vector2(0.399999, 0.399999)
+texture = ExtResource("26_wlay1")
 
 [node name="Lose Screen" type="Polygon2D" parent="."]
 visible = false
@@ -783,6 +781,8 @@ polygon = PackedVector2Array(0, 0, 512, 0, 512, 504, 0, 504)
 
 [node name="Sprite2D" type="Sprite2D" parent="Lose Screen"]
 position = Vector2(256, 256)
+scale = Vector2(0.559998, 0.64)
+texture = ExtResource("27_x75x0")
 
 [connection signal="timeout" from="EnemyManager/Vaporeon/Death Timer" to="EnemyManager/Vaporeon" method="_on_death_timer_timeout"]
 [connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]
