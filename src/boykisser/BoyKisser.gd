@@ -40,6 +40,7 @@ func damage(ammount:int = 2):
 
 
 func _on_death_countdown_timeout():
+	
 	queue_free()
 
 
