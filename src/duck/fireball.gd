@@ -22,3 +22,4 @@ func _on_area_entered(area):
 func despawn():
 	hit.emit()
 	queue_free()
+	# TODO HIT SOUIMD

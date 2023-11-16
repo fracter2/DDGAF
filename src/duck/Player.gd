@@ -56,6 +56,14 @@ func _on_area_entered(area):
 	hp -= 1
 	$"UI Layer".take_damage()
 	
+	if hp == 2:
+		# TODO: first dmg sound
+		pass
+	if hp == 1:
+		# TODO: secpmd dmg sound
+		pass
+	
+	# Deaths
 	if hp <= 0:
 		$"../Lose Screen".visible = true
 		

@@ -33,8 +33,8 @@ func _process(delta):
 
 
 
-func damage():
-	hp -= 1
+func damage(ammount:int = 2):
+	hp -= ammount
 	position.y -= 40
 	if hp <= 0: queue_free()
 

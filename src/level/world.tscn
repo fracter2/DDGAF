@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bj7twvx1wyiyq"]
+[gd_scene load_steps=22 format=3 uid="uid://bj7twvx1wyiyq"]
 
 [ext_resource type="PackedScene" uid="uid://bpooxc27b8iqh" path="res://src/menu/Main Menu.tscn" id="1_hrsc2"]
 [ext_resource type="Script" path="res://src/level/EnemyManager.gd" id="1_ny70u"]
@@ -46,9 +46,16 @@ fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 
 [sub_resource type="Gradient" id="Gradient_mfujf"]
+offsets = PackedFloat32Array(0, 0.174194)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gmhaf"]
 gradient = SubResource("Gradient_mfujf")
+
+[sub_resource type="Gradient" id="Gradient_uq36l"]
+offsets = PackedFloat32Array(0.796407, 0.958084)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_87gaw"]
+gradient = SubResource("Gradient_uq36l")
 
 [node name="world" type="Node2D"]
 
@@ -61,12 +68,15 @@ script = ExtResource("1_ny70u")
 [node name="level_segment" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -8)
 
-[node name="Instructions" type="Polygon2D" parent="MapManager/level_segment"]
-position = Vector2(-40, -192)
+[node name="level_segment2" parent="MapManager" instance=ExtResource("2_qwu24")]
+position = Vector2(0, -512)
+
+[node name="Instructions" type="Polygon2D" parent="MapManager/level_segment2"]
+position = Vector2(-44, 221)
 color = Color(0.266667, 0.266667, 0.266667, 1)
 polygon = PackedVector2Array(88, 200, 192, 200, 192, 256, 88, 256)
 
-[node name="Label" type="Label" parent="MapManager/level_segment/Instructions"]
+[node name="Label" type="Label" parent="MapManager/level_segment2/Instructions"]
 offset_left = 96.0
 offset_top = 200.0
 offset_right = 192.0
@@ -74,9 +84,6 @@ offset_bottom = 226.0
 mouse_filter = 1
 text = "A / D = walk
 SPACE = fire"
-
-[node name="level_segment2" parent="MapManager" instance=ExtResource("2_qwu24")]
-position = Vector2(0, -512)
 
 [node name="level_segment3" parent="MapManager" instance=ExtResource("2_qwu24")]
 position = Vector2(0, -1024)
@@ -124,7 +131,7 @@ position = Vector2(0, -7680)
 script = ExtResource("1_ny70u")
 
 [node name="BoyKisser" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
-position = Vector2(352, -944)
+position = Vector2(355, -870)
 
 [node name="BoyKisser3" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
 position = Vector2(88, -1120)
@@ -241,16 +248,16 @@ position = Vector2(112, -1848)
 position = Vector2(388, -1928)
 
 [node name="BoyKisser2" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
-position = Vector2(252, -704)
+position = Vector2(167, -694)
 
 [node name="BoyKisser21" parent="EnemyManager" instance=ExtResource("3_vcv8v")]
-position = Vector2(304, -264)
+position = Vector2(305, -336)
 
 [node name="tree" parent="EnemyManager" instance=ExtResource("4_n3op0")]
-position = Vector2(222, 32)
+position = Vector2(220, -63)
 
 [node name="tree4" parent="EnemyManager" instance=ExtResource("4_n3op0")]
-position = Vector2(374, 32)
+position = Vector2(367, -61)
 
 [node name="tree2" parent="EnemyManager" instance=ExtResource("4_n3op0")]
 position = Vector2(176, -904)
@@ -420,7 +427,7 @@ polygon = PackedVector2Array(0, 0, 512, 0, 512, 504, 0, 504)
 
 [node name="Sprite2D" type="Sprite2D" parent="Lose Screen"]
 position = Vector2(256, 256)
-texture = SubResource("GradientTexture2D_gmhaf")
+texture = SubResource("GradientTexture2D_87gaw")
 
 [connection signal="timeout" from="EnemyManager/Vaporeon/Death Timer" to="EnemyManager/Vaporeon" method="_on_death_timer_timeout"]
 [connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]

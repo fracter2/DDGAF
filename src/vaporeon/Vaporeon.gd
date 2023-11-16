@@ -60,19 +60,24 @@ func spawn_testicles(ammount:int):
 
 
 func damage(ammount:int = 1): # to the vaporeor
-	hp -= ammount
-	hits_taken += 1
+	if vourlnable:
+		hp -= ammount
+		hits_taken += 1
 	
 	
 	if hp <= 0:
-		# death sfx
+		# TODO: death sfx
+		vourlnable = false
 		$"Death Timer".start()
 	
 	elif hits_taken >= 3:
 		vourlnable = false
-		testies_spawned += 1
+		testies_spawned += 2
+		hits_taken = 0
+		
 		spawn_testicles(testies_spawned)
 		testies_active = testies_spawned
+		
 		barrierr.monitorable = true
 		barrierr.visible = true
 	
